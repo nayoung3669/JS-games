@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../Css/mypage.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script defer src="../Js/mypage.js"></script>
     <title>Document</title>
   </head>
@@ -17,15 +19,15 @@
             <div class="profiles">
               <img class="userIcon" src="../Assets/mypage/users (1).png" />
               <div class="names">
-                <p>NAME : Test User</p>
-                <p>ID : hanghae99_15</p>
+                <p>NAME : <span id="userName">Test User</span></p>
+                <p>ID : <span id="userId">hanghae99_15</span></p>
               </div>
             </div>
 
             <hr />
             <div class="scores">
               <p class="scoresTitle">[Best Scores]</p>
-              <p>1. BLOCK GAME : <span id="blockScore"></span></p>
+              <p id="blockScore">1. BLOCK GAME :</p>
               <p>2. DINOSAUR GAME : <span id="dinosaurScore"></span></p>
               <p>3. TYPING GAME : <span id="typingScore"></span></p>
             </div>
