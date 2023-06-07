@@ -1,0 +1,232 @@
+html,
+body {
+  font-family: "pixel";
+  /* padding: 50px; */
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  cursor: url("../Assets/mainpage/smallmouse.png"), auto;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 메인 콘텐츠 및 이미지 */
+
+.main-container > .title-box {
+  font-size: 100px;
+  font-weight: 800;
+  display: inline;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  line-height: 0.5;
+  transform: translateY(300px);
+}
+/* 가운데 로딩 창 */
+
+.start-button {
+  display: none;
+}
+
+.show {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(50vw);
+  transform: translateY(500px);
+}
+
+/* 인트로 텍스트 */
+
+.title-box > .intro-title {
+  z-index: 100;
+  margin-top: 5px;
+  line-height: 1.5;
+  color: white;
+}
+
+.intro-title:after {
+  content: "|";
+  display: inline-block;
+  font-size: 120px;
+  animation: moveCursor 600ms infinite;
+}
+
+.delete {
+  display: none;
+}
+
+/* 게임스타트 텍스트 */
+
+.move-title {
+  font-size: 50px;
+  color: white;
+  opacity: 0;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 10px;
+  margin-top: 400px;
+}
+
+.link-box > .start-button {
+  animation: spin 2s linear infinite;
+  color: white;
+}
+
+.link {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.move-title:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+}
+
+.welcomeText {
+  z-index: 100;
+  position: absolute;
+  top: 103%;
+  width: 700px;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.game-bg {
+  position: absolute;
+  top: 100%;
+  width: 1600px;
+  height: 1310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../Assets/mainpage/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow-y: hidden;
+  padding-top: 280px;
+}
+
+.game_row {
+  display: flex;
+  justify-content: space-between;
+  width: 1500px;
+  padding: 0px 300px 300px 300px;
+}
+
+.game_row:first-child {
+  justify-content: center;
+}
+
+.game1 {
+  width: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/dinosaur.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+}
+
+.game2 {
+  width: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/chat.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+}
+
+.game3 {
+  width: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/wall.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+}
+.mypage {
+  position: relative;
+  height: 270px;
+  width: 200px;
+  background-image: url("../Assets/mainpage/users.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+  font-size: 3rem;
+}
+.mypage > p {
+  position: absolute;
+  top: 80%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* 게임 이미지 클릭시 효과 */
+
+.game1:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
+}
+
+.game2:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
+}
+
+.game3:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
+}
+
+.mypageIcon:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
+}
+
+/* 오디오 */
+
+.bgm {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+
+@font-face {
+  font-family: "pixel";
+  src: url("../Assets/fonts/NeoDunggeunmoPro-Regular.ttf") format("truetype");
+}
+
+@keyframes moveCursor {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

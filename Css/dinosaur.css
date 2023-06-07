@@ -1,0 +1,113 @@
+<<<<<<< HEAD
+@import url("//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm_code/style.css");
+* {
+  font-family: "NeoDunggeunmo Code";
+}
+body {
+  background-image: url("../Assets/dinosaur/background.png");
+  background-size: cover;
+  background-position: center;
+  margin: 40px;
+}
+=======
+@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm_code/style.css');
+  *{
+    font-family: 'NeoDunggeunmo Code';
+  }
+body {
+  background-image: url('../Assets:dinogame/background.png');
+  background-size: cover;
+  background-position: center;
+  margin: 40px;
+  }
+
+>>>>>>> main
+
+#game-container {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  overflow: hidden;
+<<<<<<< HEAD
+  background-image: url("../Assets/dinosaur/game-back.png");
+=======
+  background-image: url('../Assets:dinogame/game-back.png');
+>>>>>>> main
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#player {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+<<<<<<< HEAD
+  background-image: url("../Assets/dinosaur/dinosaur.png");
+=======
+  background-image: url("../Assets:dinogame/dinosaur.png");
+>>>>>>> main
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: 0;
+  left: 10px;
+}
+
+#player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#game-over-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#game-over-container.show {
+  visibility: visible; /* 나타날 때는 보이도록 설정 */
+  opacity: 1;
+}
+
+#game-over-message {
+  margin-bottom: 20px;
+}
+
+#reset-button {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+#obstacle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.obstacle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+<<<<<<< HEAD
+  background-image: url("../Assets/dinosaur/obstacle.png");
+=======
+  background-image: url("../Assets:dinogame/obstacle.png");
+>>>>>>> main
+  background-size: cover;
+}
+
+button {
+  border-radius: 8px;
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> main
