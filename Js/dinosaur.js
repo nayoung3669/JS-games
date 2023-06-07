@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         score++;
       }
 
-      obstacleLeft -= 8;
+      obstacleLeft -= 12;
       obstacle.style.left = obstacleLeft + 'px';
 
       if (
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startGame() {
-    obstacleInterval = setInterval(generateObstacle, 3000);
+    obstacleInterval = setInterval(generateObstacle, 1000);
   }
 
   function showGameOver() {
