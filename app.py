@@ -20,6 +20,22 @@ def index():
 def mainpage():
     return render_template('mainpage.html')
 
+@app.route('/mypage')
+def mypage():
+    return render_template('mypage.html')
+
+@app.route('/blockgame')
+def blockgame():
+    return render_template('blockgame.html')
+
+@app.route('/dinosaur')
+def dinosaur():
+    return render_template('dinosaur.html')
+
+@app.route('/typing')
+def typing():
+    return render_template('typing.html')
+
 @app.route('/api/register', methods=['POST'])
 def register():
     username = request.form['username']

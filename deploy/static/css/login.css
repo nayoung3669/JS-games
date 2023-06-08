@@ -32,7 +32,7 @@
 body {
   align-items: center;
   background-color: var(--white);
-  background: url("/static/imges/login.jpeg");
+  background: url("../images/login/login.jpeg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
