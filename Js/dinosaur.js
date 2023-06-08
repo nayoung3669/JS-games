@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameOverContainer = document.getElementById('game-over-container');
   const resetButton = document.getElementById('reset-button');
   const gameOverMessage = document.getElementById('game-over-message');
-  const scoreListContainer = document.getElementById('score-list-container');
+  const scoreTable = document.getElementById('score-table');
 
   let playerBottom = 0;
   let playerLeft = 10;
@@ -16,6 +16,70 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0;
   let gameStarted = false;
   let isGameOver = false;
+
+  let records = [];
+
+  if (localStorage.getItem('dino_records')) {
+    records = JSON.parse(localStorage.getItem('dino_records'));
+  } else {
+    records = [];
+  }
+
+  displayScoreList(records.slice(0, 5)); // 상위 5개의 점수만 노출되도록 수정
+
+  function displayScoreList(records) {
+    scoreTable.innerHTML = ""; // 기존의 내용을 초기화
+
+    records.sort(function(a, b) {
+      return b.score - a.score;
+    });
+
+    records.slice(0, 5).forEach((record) => {
+      let score = record.score;
+      let date = record.date;
+      let temp_html = `
+        <tr>
+          <td>${score}</td>
+          <td>${date}</td>
+        </tr>
+      `;
+      scoreTable.innerHTML += temp_html;
+    });
+  }
+
+  function save(score, today) {
+    var scoreData = {
+      "id": today,
+      "score": score,
+      "date": today.toLocaleDateString(),
+    }
+    records.push(scoreData);
+    localStorage.setItem('dino_records', JSON.stringify(records));
+
+    displayScoreList(records); // 스코어를 저장한 후에 스코어 판을 업데이트
+  }
+
+  function showGameOver() {
+    gameStarted = false;
+    gameOverContainer.style.display = 'block';
+    gameOverMessage.textContent = 'Game Over! Score: ' + score;
+
+    save(score, new Date());
+
+    document.removeEventListener('keyup', control);
+  }
+
+  resetButton.addEventListener('click', resetGame);
+
+  function resetGame() {
+    player.style.bottom = 0;
+    playerBottom = 0;
+    obstacleContainer.innerHTML = '';
+    score = 0;
+    isGameOver = false;
+    gameOverContainer.style.display = 'none';
+    document.addEventListener('keyup', control);
+  }
 
   function control(e) {
     if (isGameOver) {
@@ -126,35 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOverContainer.style.display = 'block';
     gameOverMessage.textContent = 'Game Over! Score: ' + score;
 
-    // localStorage에서 기존 스코어 리스트 가져오기
-    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+    save(score, new Date());
 
-    // 현재 스코어를 리스트에 추가하기
-    scores.push(score);
-
-    // 스코어를 내림차순으로 정렬하기
-    scores.sort((a, b) => b - a);
-
-    // 스코어를 10개로 제한하기
-    scores = scores.slice(0, 10);
-
-    // 업데이트된 스코어를 localStorage에 저장하기
-    localStorage.setItem('scores', JSON.stringify(scores));
-
-    // 스코어 리스트를 화면에 표시하기
-    displayScoreList(scores);
+    displayScoreList(records);
 
     document.removeEventListener('keyup', control);
-  }
-
-  function displayScoreList(scores) {
-    scoreListContainer.innerHTML = '';
-
-    scores.forEach((score, index) => {
-      const scoreItem = document.createElement('li');
-      scoreItem.textContent = `${index + 1}. ${score}`;
-      scoreListContainer.appendChild(scoreItem);
-    });
   }
 
   function resetGame() {
@@ -170,10 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   resetButton.addEventListener('click', resetGame);
 
   // On page load, display the score list from localStorage
-  const scores = JSON.parse(localStorage.getItem('scores')) || [];
-  // 스코어 랭킹을 초기화하기 위해 localStorage에서 'scores' 키 제거
-  localStorage.removeItem('scores');
+  const dino_records = JSON.parse(localStorage.getItem('dino_records')) || [];
+  displayScoreList(dino_records);
 
-  // 화면에서 스코어 리스트를 초기화하여 표시 제거
-  displayScoreList([]);
 });

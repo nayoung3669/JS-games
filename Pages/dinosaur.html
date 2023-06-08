@@ -10,15 +10,25 @@
       <div id="obstacle-container"></div>
       <div id="game-over-container">
         <h2 id="game-over-message"></h2>
-        <button id="reset-button">재시작</button>
+        <button id="reset-button">reset-game</button>
       </div>
     </div>
     <div id ="spacebar">
       <h2>PRESS YOUR SPACE BAR</h2>
     </div>
     <div id="score-container">
-      <h2>S c o r e</h2>
-      <ul id="score-list-container"></ul>
+      <span>Date</span>
+      <span>Score</span>
+      <table id="score-table">
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     </div>
 
     <script src="../Js/dinosaur.js"></script>
