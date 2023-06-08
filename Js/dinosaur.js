@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (localStorage.getItem('dino_records')) {
     records = JSON.parse(localStorage.getItem('dino_records'));
+    records.sort(function(a, b) {
+      return b.score - a.score;
+    });
   } else {
     records = [];
   }
@@ -54,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "date": today.toLocaleDateString(),
     }
     records.push(scoreData);
+    records.sort(function(a, b) {
+      return b.score - a.score;
+    });
     localStorage.setItem('dino_records', JSON.stringify(records));
 
     displayScoreList(records); // 스코어를 저장한 후에 스코어 판을 업데이트
