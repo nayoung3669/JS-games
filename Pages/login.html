@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Css/login.css">
+    <!-- <audio src="/Assets/bgm/bgm1.wav" autoplay></audio> -->
+    <style>
+        * {
+            cursor: url("/Assets/imge/smallmouse.png") 20 30, auto;
+        }
+    </style>
+    <title>회원가입&로그인</title>
+</head>
+
+<body>
+    <div class="container right-panel-active">
+        <!-- 회원가입 -->
+        <div class="container__form container--signup">
+            <!-- form의 경우 웹페이지에서 '입력양식'을 의미 (텍스트 필드에 글자를 입력하거나, 체크 박스 등을 클릭하고 제출을 할 경우 백엔드로 양식이 전달됌) -->
+            <form action="#" class="form" id="form1">
+                <!-- 회원가입 대가리 -->
+                <h2 class="form__title">회원가입</h2>
+                <!-- 입력정보 -->
+                <input type="text" placeholder="User" class="input" />
+                <input type="text" placeholder="Id" class="input" />
+                <input type="password" placeholder="Password" class="input" />
+
+                <button class="btn">회원가입</button>
+            </form>
+        </div>
+
+        <!-- 로그인 -->
+        <div class="container__form container--signin">
+
+            <form action="#" class="form" id="form2">
+
+                <h2 class="form__title">로그인</h2>
+                <input type="text" placeholder="Id" class="input" />
+                <input type="password" placeholder="Password" class="input" />
+
+                <button class="btn">로그인</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                    <button class="btn" id="signIn">로그인</button>
+                </div>
+                <div class="overlay__panel overlay--right">
+                    <button class="btn" id="signUp">회원가입</button>
+                </div>
+</body>
+<script src="/Js/login.js"></script>
+
+</html>
