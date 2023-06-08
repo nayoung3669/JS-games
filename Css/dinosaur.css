@@ -94,20 +94,27 @@ button {
   overflow: hidden;
   color: white;
   }
+
+#score-container span {
+  font-size: 20px;
+  margin-right: 22%;
+  color: white;
+  ;
+}
   
-  #score-list-container {
+#score-table {
   list-style: none;
   padding: 0;
   color: white;
-  }
+}
   
-  #score-list-container li {
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: white;
-  }
+table {
+  width: 600px;
+  height: 250px;
+  margin: 3% auto auto 9%;
+}
   
-  #spacebar {
+#spacebar {
   text-align: center;
   position: relative;
-  }
+}
