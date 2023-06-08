@@ -64,11 +64,10 @@ secondForm.addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((res) => {
         if (res.status === "success") {
-            alert(res.msg)
-            //성공시의 코드 작성
+            window.location.href = "http://127.0.0.1:5500/index.html";
         } else {
             alert(res.msg)
-            //실패시의 코드 작성
+            location.reload()
         }
         
 
