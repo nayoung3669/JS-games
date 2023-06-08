@@ -26,7 +26,6 @@ body {
   line-height: 0.5;
   transform: translateY(300px);
 }
-/* 가운데 로딩 창 */
 
 .start-button {
   display: none;
@@ -43,10 +42,8 @@ body {
 }
 
 /* 인트로 텍스트 */
-
 .title-box > .intro-title {
   z-index: 100;
-  margin-top: 5px;
   line-height: 1.5;
   color: white;
 }
@@ -107,7 +104,7 @@ body {
   position: absolute;
   top: 100%;
   width: 1600px;
-  height: 1310px;
+  height: 1210px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,23 +112,54 @@ body {
   background-size: cover;
   background-position: center;
   overflow-y: hidden;
-  padding-top: 280px;
 }
 
 .game_row {
   display: flex;
   justify-content: space-between;
-  width: 1500px;
-  padding: 0px 300px 300px 300px;
+  width: 1250px;
+  margin: 0px 200px 130px 200px;
+  height: 110px;
 }
 
-.game_row:first-child {
+.game_row:nth-child(1) {
+  background-color: black;
+  color: white;
+  position: relative;
+  flex-direction: row;
+  font-size: 3rem;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.game_row:nth-child(1) > .more {
+  position: absolute;
+  right: 50px;
+  background-image: url("../Assets/mainpage/more2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+}
+
+.game_row:nth-child(2) {
   justify-content: center;
 }
 
+.game_row:nth-child(3) {
+  display: flex;
+  margin-top: 90px;
+  justify-content: space-between;
+}
+
 .game1 {
+  font-size: 1.2rem;
   width: 300px;
-  height: 200px;
+  height: 150px;
   background-image: url("../Assets/mainpage/dinosaur.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -140,8 +168,9 @@ body {
 }
 
 .game2 {
+  font-size: 1.2rem;
   width: 300px;
-  height: 200px;
+  height: 170px;
   background-image: url("../Assets/mainpage/chat.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -150,8 +179,9 @@ body {
 }
 
 .game3 {
+  font-size: 1.2rem;
   width: 300px;
-  height: 200px;
+  height: 170px;
   background-image: url("../Assets/mainpage/wall.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -161,7 +191,7 @@ body {
 .mypage {
   position: relative;
   height: 270px;
-  width: 200px;
+  width: 180px;
   background-image: url("../Assets/mainpage/users.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -169,14 +199,19 @@ body {
   transition: all 0.5s ease;
   font-size: 3rem;
 }
+
 .mypage > p {
   position: absolute;
-  top: 80%;
+  top: 70%;
   text-align: center;
-  padding: 10px;
 }
 
 /* 게임 이미지 클릭시 효과 */
+
+.h3:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
+}
 
 .game1:hover {
   cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
@@ -206,6 +241,10 @@ body {
   top: 1%;
 }
 
+a {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: "pixel";
   src: url("../Assets/fonts/NeoDunggeunmoPro-Regular.ttf") format("truetype");
@@ -228,5 +267,69 @@ body {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .main-container > .title-box {
+    height: 900px;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-bg {
+    position: absolute;
+    top: 100%;
+    height: 1010px;
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Assets/mypage/background.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    padding-bottom: 200px;
+    padding-top: 200px;
+  }
+
+  .title-box > .intro-title {
+    z-index: 100;
+    line-height: 1.5;
+    color: white;
+    margin-bottom: 400px;
+  }
+
+  .link-box {
+    margin-bottom: 400px;
+  }
+  .game_row {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .game_row:nth-child(3) {
+    min-height: 700px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .game1 {
+    margin-top: 50px;
+  }
+
+  .mypage {
+    font-size: 2rem;
+    padding-top: 50px;
+  }
+  .game_row:nth-child(1) > .more {
+    position: absolute;
+    right: 180px;
   }
 }
