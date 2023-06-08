@@ -16,6 +16,10 @@ db = client['dbsparta']
 def index():
     return render_template('index.html')
 
+@app.route('/mainpage')
+def mainpage():
+    return render_template('mainpage.html')
+
 @app.route('/api/register', methods=['POST'])
 def register():
     username = request.form['username']
@@ -33,7 +37,6 @@ def register():
         return jsonify({"status" : "success", "msg" : "회원 가입 성공."})
     except:
         return jsonify({"status" : "error","msg" : "에러가 발생했습니다."})
-    # return redirect('/')
 
 @app.route('/api/login', methods=['POST'])
 def login():

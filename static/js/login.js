@@ -64,13 +64,10 @@ secondForm.addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((res) => {
         if (res.status === "success") {
-            window.location.href = "http://127.0.0.1:5500/index.html";
+            window.location.replace("/mainpage");
         } else {
             alert(res.msg)
             location.reload()
         }
-        
-
     });
-
 });
