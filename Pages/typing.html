@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing Game</title>
     <link rel="stylesheet" href="../Css/typing.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link href="https://fonts.cdnfonts.com/css/pixolde" rel="stylesheet" />
     <noscript>
@@ -30,12 +32,12 @@
         class="word-input" />
     </div>
     <div class="game-info">
-      <div>남은시간 <span class="time">0</span>초</div>
-      <div>획득점수 <span id="score" class="score">0</span>점</div>
+      <div>Time <span class="time">0</span>s</div>
+      <div>Score <span id="score" class="score">0</span></div>
     </div>
     <button class="button loading" onclick="run()">loading....</button>
     <div>
-      <input
+      <!-- <input
         type="text"
         id="userName"
         placeholder="NickName"
@@ -58,14 +60,24 @@
         id="loadButton"
         class="button">
         LOAD
-      </button>
+      </button> -->
+      <div class="scores">
+        <table id="scoreTable">
+          <tr>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <div id="load"></div>
     <script src="../Js//typing.js"></script>
     <div class="source">
-      <p>img_source : https://pin.it/3URoZfV</p>
-      <p>game_source : https://www.youtube.com/watch?v=_CsGSE5gwTA&t=1927s</p>
+      <p>
+        img: https://pin.it/3URoZfV game:
+        https://www.youtube.com/watch?v=_CsGSE5gwTA&t=1927s
+      </p>
     </div>
   </body>
 </html>

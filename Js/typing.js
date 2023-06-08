@@ -1,5 +1,8 @@
 const GAME_TIME = 6;
 let score = 0;
+var today = new Date()
+
+var records = []
 let time = GAME_TIME;
 let isPlaying = false;
 let timeInterval;
@@ -14,6 +17,36 @@ const timeDisplay = document.querySelector('.time');
 const button = document.querySelector('.button');
 const userName = document.querySelector('#userName');
 
+if (localStorage.getItem("typinggame_records")) {
+    records = JSON.parse(localStorage.getItem("typinggame_records"))
+    //같은 id, 같은 score 인 객체를 하나로 합치기
+    records = records.reduce(function(acc, current) {
+        if (acc.findIndex(({ id }) => id === current.id) === -1) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+    //score가 큰 객체부터 정렬하기
+    records.sort(function(a,b) {
+        return b.score - a.score
+    })
+    $("#scoreTable").empty;
+    //정렬된 배열을 하나씩 테이블에 append 하기
+    records.forEach((record) => {
+        let score = record.score
+        let date = record.date
+        let temp_html = `
+            <tr>
+                <td>${score}</td>
+                <td>${date}</td>
+            </tr>
+        `
+        $("#scoreTable").append(temp_html)
+    })
+} else {
+    records = []
+}
+
 init();
 
 function init() {
@@ -21,6 +54,16 @@ function init() {
     getWords();
     wordInput.addEventListener('input', checkMatch)
 
+}
+
+function save(score, today) {
+    var scores = {
+        "id": today,
+        "score": score,
+        "date" : today.toLocaleDateString(),
+    }
+    records.push(scores)
+    localStorage.setItem('typinggame_records',JSON.stringify(records))
 }
 
 // 게임 실행
@@ -47,7 +90,9 @@ function checkStatus() {
         buttonChange("Game start!")
 
         clearInterval(checkInterval)
-        saveLoad()
+        save(score, today)
+        location.reload();
+
     }
 }
 
@@ -98,18 +143,18 @@ function buttonChange(text) {
     text === 'Game start!' ? button.classList.remove('loading') : button.classList.add('loading')
 }
 
-function saveLoad() {
-    const score = document.getElementById("saveButton")
-    const loadScore = document.getElementById("loadButton")
-    score.setAttribute("style", "display: inline-block;")
-    loadScore.setAttribute("style", "display:inline-block;")
-    userName.setAttribute("style", "display:inline-block;")
-}
+// function saveLoad() {
+//     const score = document.getElementById("saveButton")
+//     const loadScore = document.getElementById("loadButton")
+//     score.setAttribute("style", "display: inline-block;")
+//     loadScore.setAttribute("style", "display:inline-block;")
+//     userName.setAttribute("style", "display:inline-block;")
+// }
 
-function save() {
-    const score = document.getElementById("score")
-    ranking(score.innerText, userName.value)
-}
+// function save() {
+//     const score = document.getElementById("score")
+//     ranking(score.innerText, userName.value)
+// }
 
 function load() {
     const loadDiv = document.getElementById("load")
