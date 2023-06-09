@@ -77,7 +77,7 @@
   <br />
 
 - 마이페이지 : 회원 게임 데이터를 가져와 각 게임별 최고점수 및 날짜를 보여주는 기능 구현
-  <img src="README_IMG/mypage.png">
+  <img src="README_IMG/mypage2.png">
 
 - 게임 페이지: 각 게임마다 최고기록부터 랭킹 및 날짜 보여주는 기능 구현
 
