@@ -1,33 +1,33 @@
-var canvas = document.getElementById("gamezone");
-var ctx = canvas.getContext("2d"); //캔버스에 그리기 위해 실질적으로 사용되는 도구인 rendering context => 2d
-var startButton = document.getElementById("startButton")
-var cancelButton = document.getElementById("cancelButton")
+let canvas = document.getElementById("gamezone");
+let ctx = canvas.getContext("2d"); //캔버스에 그리기 위해 실질적으로 사용되는 도구인 rendering context => 2d
+let startButton = document.getElementById("startButton")
+let cancelButton = document.getElementById("cancelButton")
 
-var ballRadius = 10;
-var x = canvas.width/2;
-var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+let ballRadius = 10;
+let x = canvas.width/2;
+let y = canvas.height-30;
+let dx = 2;
+let dy = -2;
 
-var paddleHeight = 10;
-var paddleWidth = 75;
-var paddleX = (canvas.width-paddleWidth)/2;
-var brickRowCount = 3;
-var brickColumnCount = 5;
-var brickWidth = 75;
-var brickHeight = 20;
-var brickPadding = 10;
-var brickOffsetTop = 30;
-var brickOffsetLeft = 30;
+let paddleHeight = 10;
+let paddleWidth = 75;
+let paddleX = (canvas.width-paddleWidth)/2;
+let brickRowCount = 3;
+let brickColumnCount = 5;
+let brickWidth = 75;
+let brickHeight = 20;
+let brickPadding = 10;
+let brickOffsetTop = 30;
+let brickOffsetLeft = 30;
 
-var rightPressed = false;
-var leftPressed = false;
+let rightPressed = false;
+let leftPressed = false;
 
-var score = 0;
-var today = new Date()
-var startText = "Press Start Button Below"
-var showGameStart = true
-var records = []
+let score = 0;
+let today = new Date()
+let startText = "Press Start Button Below"
+let showGameStart = true
+let records = []
 
 if (localStorage.getItem("blockgame_records")) {
     records = JSON.parse(localStorage.getItem("blockgame_records"))
@@ -82,10 +82,10 @@ function showText() {
 }
 
 //벽돌 만들기
-    var bricks = [];
+    let bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
         bricks[c] = [];
-        for(var r=0; r<brickRowCount; r++) {
+        for(let r=0; r<brickRowCount; r++) {
             bricks[c][r] = { x: 0, y: 0, status: 1 };
         }
     }
@@ -109,8 +109,8 @@ function drawPaddle() {
 
 //벽돌 그리기
 function drawBricks() {
-    for(var c=0; c<brickColumnCount; c++) {
-        for(var r=0; r<brickRowCount; r++) {
+    for(let c=0; c<brickColumnCount; c++) {
+        for(let r=0; r<brickRowCount; r++) {
             if(bricks[c][r].status == 1) { //status = 1 (=공이 치지 않아 벽돌을 그려도 되는 상태)
                 var brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
                 var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
@@ -164,9 +164,7 @@ function draw() {
     y += dy;
 }
 
-//키의 움직임에 따른 이벤트 핸들러
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+
 
 //키를 누를 때
 function keyDownHandler(e) {
@@ -189,9 +187,9 @@ function keyUpHandler(e) {
 }
 
 function collisionDetection() {
-    for(var c=0; c<brickColumnCount; c++) {
-        for(var r=0; r<brickRowCount; r++) {
-            var b = bricks[c][r];
+    for(let c=0; c<brickColumnCount; c++) {
+        for(let r=0; r<brickRowCount; r++) {
+            let b = bricks[c][r];
             if(b.status == 1) {
                 if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
@@ -214,9 +212,6 @@ function drawScore() {
     ctx.fillText("Score: "+score, 8, 20);
 }
 
-//게임 시작 전 세팅
-showText();
-
 //게임 시작
 function gameInit() {
     showGameStart = false
@@ -227,6 +222,12 @@ function gameInit() {
 function reload() {
     location.reload()
 }
+//게임 시작 전 세팅
+showText();
+
+//키의 움직임에 따른 이벤트 핸들러
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
 
 startButton.addEventListener("click", gameInit);
 cancelButton.addEventListener("click", reload);
